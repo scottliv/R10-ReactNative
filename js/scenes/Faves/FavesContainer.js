@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 // import PropTypes from 'prop-types'
-import Speaker from "./Speaker";
+import Faves from "./Faves";
 
-export default class SpeakerContainer extends Component {
+export default class FavesContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -10,11 +10,11 @@ export default class SpeakerContainer extends Component {
 
   static route = {
     navigationBar: {
-      title: "Speaker"
+      title: "Faves"
     }
   };
 
   render() {
-    return <Speaker />;
+    return <Faves />;
   }
 }

@@ -1,27 +1,32 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { fetchAboutInfo } from "../../redux/modules/about";
 // import PropTypes from 'prop-types'
 import About from "./About";
 
-export default class AboutContainer extends Component {
+class AboutContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      loading: true,
-      data: []
-    };
   }
 
-  getAboutData = () => {
-    fetch("https://r10app-95fea.firebaseio.com/code_of_conduct.json")
-      .then(res => res.json())
-      .then(data => this.setState({ data, loading: false }))
-      .catch(e => console.log(e));
+  static route = {
+    navigationBar: {
+      title: "About"
+    }
   };
 
   componentDidMount() {
-    this.getAboutData();
+    this.props.dispatch(fetchAboutInfo());
   }
   render() {
-    return <About data={this.state.data} loading={this.state.loading} />;
+    return <About data={this.props.aboutInfo} loading={this.props.loading} />;
   }
 }
+
+const mapStateToProps = state => ({
+  loading: state.about.loading,
+  aboutInfo: state.about.aboutInfo,
+  error: state.about.error
+});
+
+export default connect(mapStateToProps)(AboutContainer);
