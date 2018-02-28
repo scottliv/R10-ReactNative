@@ -9,7 +9,12 @@ const list = ({ data, loading, error }) => {
   }
   return (
     <SectionList
-      renderItem={({ item }) => <Text>{item.title} </Text>}
+      renderItem={({ item }) => (
+        <View>
+          <Text>{item.title} </Text>
+          <Text>{item.location} </Text>
+        </View>
+      )}
       renderSectionHeader={({ section }) => (
         <Text>{Moment.unix(section.title).format("LT")}</Text>
       )}
