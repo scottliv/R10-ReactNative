@@ -29,6 +29,7 @@ export default class NavigationLayout extends Component {
         <TabNavigationItem
           id="about"
           title="About"
+          navigatorUID="about"
           renderIcon={isSelected =>
             this.renderIcon(isSelected, "ios-information-circle")
           }
@@ -42,7 +43,11 @@ export default class NavigationLayout extends Component {
           renderIcon={isSelected => this.renderIcon(isSelected, "ios-calendar")}
           renderTitle={this.renderTitle}
         >
-          <StackNavigation initialRoute={Router.getRoute("schedule")} />
+          <StackNavigation
+            id="schedule"
+            navigatorUID="schedule"
+            initialRoute={Router.getRoute("schedule")}
+          />
         </TabNavigationItem>
         <TabNavigationItem
           id="faves"
@@ -50,7 +55,11 @@ export default class NavigationLayout extends Component {
           renderIcon={isSelected => this.renderIcon(isSelected, "ios-heart")}
           renderTitle={this.renderTitle}
         >
-          <StackNavigation initialRoute={Router.getRoute("faves")} />
+          <StackNavigation
+            id="faves"
+            initialRoute={Router.getRoute("faves")}
+            navigatorUID="faves"
+          />
         </TabNavigationItem>
       </TabNavigation>
     );
