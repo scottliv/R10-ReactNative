@@ -22,7 +22,10 @@ class FavesContainer extends Component {
     });
     return this.props.schedule.reduce((acc, item) => {
       if (keys.includes(item.session_id)) {
+        item.isFave = true;
         acc.push(item);
+      } else {
+        item.isFave = false;
       }
       return acc;
     }, []);
@@ -39,6 +42,7 @@ class FavesContainer extends Component {
       <List
         data={formatSessionData(this.favouriteFilter(this.props.schedule))}
         loading={this.props.loading}
+        currentUID={this.props.currentUID}
         error={this.props.error}
       />
     );
@@ -49,6 +53,7 @@ const mapStateToProps = state => ({
   loading: state.about.loading,
   schedule: state.schedule.schedule,
   faves: state.faves.faves,
+  currentUID: state.navigation.currentNavigatorUID,
   error: state.about.error
 });
 

@@ -7,7 +7,6 @@ const GET_SCHEDULE = "GET_SCHEDULE";
 const GET_SCHEDULE_ERROR = "GET_SCHEDULE_ERROR";
 
 // Action Creators
-
 const getScheduleLoading = () => ({ type: GET_SCHEDULE_LOADING });
 const getSchedule = aboutInfo => ({
   type: GET_SCHEDULE,

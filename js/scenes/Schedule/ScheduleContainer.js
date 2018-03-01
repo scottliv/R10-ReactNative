@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchSchedule } from "../../redux/modules/schedule";
-import { goToSession } from "../../navigation/navigationHelpers";
+import { fetchFaves } from "../../redux/modules/faves";
 import { formatSessionData } from "../../helpers";
 
 // import PropTypes from 'prop-types'
 import List from "../../components/List";
-
 class ScheduleContainer extends Component {
   constructor(props) {
     super(props);
@@ -17,15 +16,29 @@ class ScheduleContainer extends Component {
       title: "Schedule"
     }
   };
+  favouriteFilter = schedule => {
+    const keys = Object.keys(this.props.faves).map(key => {
+      return this.props.faves[key].id;
+    });
+    return this.props.schedule.reduce((acc, item) => {
+      if (keys.includes(item.session_id)) {
+        item.isFave = true;
+      } else {
+        item.isFave = false;
+      }
+      acc.push(item);
+      return acc;
+    }, []);
+  };
 
   componentDidMount() {
+    this.props.dispatch(fetchFaves());
     this.props.dispatch(fetchSchedule());
   }
   render() {
-    console.log(this.props.currentUID);
     return (
       <List
-        data={formatSessionData(this.props.schedule)}
+        data={formatSessionData(this.favouriteFilter(this.props.schedule))}
         loading={this.props.loading}
         error={this.props.error}
         currentUID={this.props.currentUID}
@@ -35,10 +48,11 @@ class ScheduleContainer extends Component {
 }
 
 const mapStateToProps = state => ({
+  faves: state.faves.faves,
   schedule: state.schedule.schedule,
   error: state.schedule.error,
   loading: state.schedule.loading,
-  currentUID: state.navigation.navigators.currentNavigatorUID
+  currentUID: state.navigation.currentNavigatorUID
 });
 
 export default connect(mapStateToProps)(ScheduleContainer);

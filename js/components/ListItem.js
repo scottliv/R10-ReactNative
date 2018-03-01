@@ -9,17 +9,23 @@ const ListItem = ({ item, currentUID }) => {
     <TouchableHighlight
       underlayColor={colors.purple}
       activeOpacity={42}
-      onPress={() => goToSession("schedule", { item })}
+      onPress={() => goToSession(currentUID, { item })}
     >
       <View>
         <Text>{item.title} </Text>
         <Text>{item.location} </Text>
-        {Platform.OS === "android" && (
-          <Icon style={{ color: "black" }} size={24} name={"md-heart"} />
-        )}
-        {Platform.OS === "ios" && (
-          <Icon style={{ color: "black" }} size={24} name={"ios-heart"} />
-        )}
+        {Platform.OS === "android" &&
+          (item.isFave ? (
+            <Icon style={{ color: "black" }} size={24} name={"md-heart"} />
+          ) : (
+            <View />
+          ))}
+        {Platform.OS === "ios" &&
+          (item.isFave ? (
+            <Icon style={{ color: "black" }} size={24} name={"ios-heart"} />
+          ) : (
+            <View />
+          ))}
       </View>
     </TouchableHighlight>
   );
