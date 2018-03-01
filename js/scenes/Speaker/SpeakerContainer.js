@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { View, TouchableHighlight } from "react-native";
+import Icon from "react-native-vector-icons/Ionicons";
+import { goBack } from "../../navigation/navigationHelpers";
 // import PropTypes from 'prop-types'
 import Speaker from "./Speaker";
 
@@ -10,11 +13,23 @@ export default class SpeakerContainer extends Component {
 
   static route = {
     navigationBar: {
-      title: "Speaker"
+      visible: false,
+      title: "Spleaker"
     }
   };
 
   render() {
-    return <Speaker speaker={this.props.route.params.speaker} />;
+    return (
+      <View>
+        <TouchableHighlight
+          onPress={() => {
+            goBack();
+          }}
+        >
+          <Icon style={{ color: "black" }} size={24} name={"ion-close-round"} />
+        </TouchableHighlight>
+        <Speaker speaker={this.props.route.params.speaker} />
+      </View>
+    );
   }
 }
