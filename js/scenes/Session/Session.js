@@ -6,7 +6,7 @@ import { Button, View, Text, TouchableHighlight } from "react-native";
 import { goToSpeaker } from "../../navigation/navigationHelpers";
 
 const Session = ({ item, speaker }) => {
-  console.log(realm);
+  console.log(item);
   return (
     <View>
       <Text>{item.location}</Text>
@@ -23,6 +23,7 @@ const Session = ({ item, speaker }) => {
       <Button
         onPress={() => {
           createFave(item.session_id);
+          console.log("hi");
         }}
         title="Add To Faves"
         color="#841584"

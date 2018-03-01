@@ -21,15 +21,11 @@ export default class DrawerNavigationLayout extends Component {
 
   render() {
     return (
-      <DrawerNavigation
-        id="main"
-        initialItem="about"
-        drawerWidth={300}
-        renderHeader={this._renderHeader}
-      >
+      <DrawerNavigation id="main" initialItem="about" drawerWidth={300}>
         <DrawerNavigationItem
           id="faves"
           selectedStyle={styles.selectedItemStyle}
+          navigatorUID="faves"
           renderIcon={isSelected => this.renderIcon(isSelected, "md-heart")}
           renderTitle={isSelected => this._renderTitle("Faves", isSelected)}
         >

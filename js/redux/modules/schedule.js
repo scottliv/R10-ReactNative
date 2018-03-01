@@ -22,7 +22,7 @@ export const fetchSchedule = () => dispatch => {
   dispatch(getScheduleLoading());
   fetch(endpoints.sessions)
     .then(res => res.json())
-    .then(data => dispatch(getSchedule(formatSessionData(data))))
+    .then(data => dispatch(getSchedule(data)))
     .catch(e => dispatch(getScheduleError(e)));
 };
 

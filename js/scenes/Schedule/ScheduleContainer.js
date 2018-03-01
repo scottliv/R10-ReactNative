@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchSchedule } from "../../redux/modules/schedule";
 import { goToSession } from "../../navigation/navigationHelpers";
+import { formatSessionData } from "../../helpers";
 
 // import PropTypes from 'prop-types'
 import List from "../../components/List";
@@ -17,10 +18,6 @@ class ScheduleContainer extends Component {
     }
   };
 
-  onPressFunction = (currentUID, sessionData) => {
-    goToSession(currentUID, sessionData);
-  };
-
   componentDidMount() {
     this.props.dispatch(fetchSchedule());
   }
@@ -28,10 +25,9 @@ class ScheduleContainer extends Component {
     console.log(this.props.currentUID);
     return (
       <List
-        data={this.props.schedule}
+        data={formatSessionData(this.props.schedule)}
         loading={this.props.loading}
         error={this.props.error}
-        onPressFunction={this.onPressFunction}
         currentUID={this.props.currentUID}
       />
     );
