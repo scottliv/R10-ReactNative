@@ -1,14 +1,17 @@
 import React from "react";
-import { View, Text, TouchableHighlight } from "react-native";
+import Moment from "moment";
+import realm from "../../config/model";
+import { createFave, deleteFave } from "../../config/model";
+import { Button, View, Text, TouchableHighlight } from "react-native";
 import { goToSpeaker } from "../../navigation/navigationHelpers";
 
 const Session = ({ item, speaker }) => {
-  console.log(speaker);
+  console.log(realm);
   return (
     <View>
       <Text>{item.location}</Text>
       <Text>{item.title}</Text>
-      <Text>{item.start_time}</Text>
+      <Text>{Moment.unix(item.start_time).format("LT")}</Text>
       <Text>{item.description}</Text>
       <TouchableHighlight
         onPress={() => {
@@ -17,6 +20,22 @@ const Session = ({ item, speaker }) => {
       >
         <Text>{speaker.name}</Text>
       </TouchableHighlight>
+      <Button
+        onPress={() => {
+          createFave(item.session_id);
+        }}
+        title="Add To Faves"
+        color="#841584"
+        accessibilityLabel="Add to Faves"
+      />
+      <Button
+        onPress={() => {
+          deleteFave(item.session_id);
+        }}
+        title="Remove from Faves"
+        color="#841584"
+        accessibilityLabel="Remove from Faves"
+      />
     </View>
   );
 };

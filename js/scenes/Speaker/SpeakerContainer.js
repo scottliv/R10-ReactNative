@@ -26,7 +26,7 @@ export default class SpeakerContainer extends Component {
             goBack();
           }}
         >
-          <Icon style={{ color: "black" }} size={24} name={"ion-close-round"} />
+          <Icon style={{ color: "black" }} size={24} name={"md-close"} />
         </TouchableHighlight>
         <Speaker speaker={this.props.route.params.speaker} />
       </View>
