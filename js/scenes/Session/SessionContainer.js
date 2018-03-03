@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import endpoints from "../../config/endpoints";
-
+import realm from "../../config/model";
 // import PropTypes from 'prop-types'
 import Session from "./Session";
 
@@ -12,6 +11,16 @@ class SessionContainer extends Component {
       data: {}
     };
   }
+
+  componentWillMount() {
+    realm.addListener("change", this._forceUpdate);
+  }
+
+  componentWillUnmount() {
+    realm.removeListener("change", this._forceUpdate);
+  }
+
+  _forceUpdate = () => this.forceUpdate();
 
   static route = {
     navigationBar: {

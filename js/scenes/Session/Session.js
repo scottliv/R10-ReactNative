@@ -1,12 +1,11 @@
 import React from "react";
 import Moment from "moment";
-import realm from "../../config/model";
+
 import { createFave, deleteFave } from "../../config/model";
 import { Button, View, Text, TouchableHighlight } from "react-native";
 import { goToSpeaker } from "../../navigation/navigationHelpers";
 
 const Session = ({ item, speaker }) => {
-  console.log(item);
   return (
     <View>
       <Text>{item.location}</Text>
@@ -24,7 +23,7 @@ const Session = ({ item, speaker }) => {
         <Button
           onPress={() => {
             createFave(item.session_id);
-            console.log("hi");
+            item.isFave = true;
           }}
           title="Add To Faves"
           color="#841584"
@@ -34,6 +33,7 @@ const Session = ({ item, speaker }) => {
         <Button
           onPress={() => {
             deleteFave(item.session_id);
+            item.isFave = false;
           }}
           title="Remove from Faves"
           color="#841584"
