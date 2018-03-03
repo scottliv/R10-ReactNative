@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { fetchSchedule } from "../../redux/modules/schedule";
 import { fetchFaves } from "../../redux/modules/faves";
 import { formatSessionData } from "../../helpers";
+import style from "./style";
 
 // import PropTypes from 'prop-types'
 import List from "../../components/List";
@@ -42,6 +43,7 @@ class ScheduleContainer extends Component {
         loading={this.props.loading}
         error={this.props.error}
         currentUID={this.props.currentUID}
+        style={style}
       />
     );
   }

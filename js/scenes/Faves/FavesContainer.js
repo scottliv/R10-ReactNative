@@ -5,6 +5,7 @@ import { fetchFaves } from "../../redux/modules/faves";
 import List from "../../components/List";
 import { fetchSchedule } from "../../redux/modules/schedule";
 import { formatSessionData } from "../../helpers";
+import style from "./style";
 
 class FavesContainer extends Component {
   constructor(props) {
@@ -44,6 +45,7 @@ class FavesContainer extends Component {
         loading={this.props.loading}
         currentUID={this.props.currentUID}
         error={this.props.error}
+        style={style}
       />
     );
   }

@@ -21,13 +21,13 @@ export const fetchSpeaker = () => dispatch => {
   dispatch(getSpeakerLoading());
   fetch(endpoints.speakers)
     .then(res => res.json())
-    .then(data => dispatch(getSpeaker(formatSessionData(data))))
+    .then(data => dispatch(getSpeaker(data)))
     .catch(e => dispatch(getSpeakerError(e)));
 };
 
 // Reducer
 export default (
-  state = { loading: false, speakers: [], error: "" },
+  state = { loading: false, speakers: {}, error: "" },
   action
 ) => {
   switch (action.type) {

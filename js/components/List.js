@@ -3,14 +3,14 @@ import { SectionList, View, Text } from "react-native";
 import ListItem from "./ListItem";
 import Moment from "moment";
 
-const List = ({ data, loading, error, currentUID }) => {
+const List = ({ data, loading, error, currentUID, style }) => {
   if (error) {
     return <View />;
   }
   return (
     <SectionList
       renderItem={({ item }) => (
-        <ListItem item={item} currentUID={currentUID} />
+        <ListItem item={item} currentUID={currentUID} style={style} />
       )}
       renderSectionHeader={({ section }) => (
         <Text>{Moment.unix(section.title).format("LT")}</Text>

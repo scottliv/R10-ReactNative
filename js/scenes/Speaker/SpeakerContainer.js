@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { View, TouchableHighlight } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import { goBack } from "../../navigation/navigationHelpers";
+import style from "./style";
 // import PropTypes from 'prop-types'
 import Speaker from "./Speaker";
 
@@ -14,13 +15,13 @@ export default class SpeakerContainer extends Component {
   static route = {
     navigationBar: {
       visible: false,
-      title: "Spleaker"
+      title: "Speaker"
     }
   };
 
   render() {
     return (
-      <View>
+      <View style={style.container}>
         <TouchableHighlight
           onPress={() => {
             goBack();

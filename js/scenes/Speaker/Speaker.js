@@ -1,6 +1,6 @@
 import React from "react";
 import { Image, Text, View } from "react-native";
-export default ({ speaker }) => (
+const Speaker = ({ speaker }) => (
   <View>
     <Image
       source={{ uri: speaker.image }}
@@ -10,3 +10,5 @@ export default ({ speaker }) => (
     <Text> {speaker.bio} </Text>
   </View>
 );
+
+export default Speaker;

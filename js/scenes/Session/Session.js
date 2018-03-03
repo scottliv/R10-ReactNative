@@ -20,23 +20,26 @@ const Session = ({ item, speaker }) => {
       >
         <Text>{speaker.name}</Text>
       </TouchableHighlight>
-      <Button
-        onPress={() => {
-          createFave(item.session_id);
-          console.log("hi");
-        }}
-        title="Add To Faves"
-        color="#841584"
-        accessibilityLabel="Add to Faves"
-      />
-      <Button
-        onPress={() => {
-          deleteFave(item.session_id);
-        }}
-        title="Remove from Faves"
-        color="#841584"
-        accessibilityLabel="Remove from Faves"
-      />
+      {!item.isFave ? (
+        <Button
+          onPress={() => {
+            createFave(item.session_id);
+            console.log("hi");
+          }}
+          title="Add To Faves"
+          color="#841584"
+          accessibilityLabel="Add to Faves"
+        />
+      ) : (
+        <Button
+          onPress={() => {
+            deleteFave(item.session_id);
+          }}
+          title="Remove from Faves"
+          color="#841584"
+          accessibilityLabel="Remove from Faves"
+        />
+      )}
     </View>
   );
 };

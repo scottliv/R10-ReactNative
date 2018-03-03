@@ -3,9 +3,12 @@ import { typography, colors } from "../../config/style";
 
 export default StyleSheet.create({
   text: {
-    fontFamily: typography.fontMainlight
+    fontFamily: typography.fontMainlight,
+    fontSize: 16
   },
   header: {
+    paddingVertical: 15,
+    fontSize: 16,
     fontFamily: typography.fontMain
   },
   logo: {
@@ -15,6 +18,8 @@ export default StyleSheet.create({
     padding: 25
   },
   container: {
+    marginLeft: 5,
+    paddingTop: 5,
     borderTopWidth: 1,
     borderTopColor: colors.lightGrey
   }

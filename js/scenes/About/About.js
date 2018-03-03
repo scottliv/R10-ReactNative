@@ -10,22 +10,22 @@ const About = ({ data, loading }) => (
       <Image source={logo} />
     </View>
     <View style={style.container}>
-      <Text style={style.header}>
+      <Text style={style.text}>
         R10 is a conferenc that focuses on just about any topic related to dev
       </Text>
 
-      <Text>Date & Venue</Text>
+      <Text style={style.header}>Date & Venue</Text>
       <Text>
         The R10 conference will take place on Tuesday, June 27, 2017 in
         Vancouver, BC.
       </Text>
-      <Text>Code of Conduct</Text>
+      <Text style={style.header}>Code of Conduct</Text>
       {!loading ? (
         data.map(item => {
           return (
             <View key={item.title}>
-              <Text>{item.title}</Text>
-              <Text>{item.description}</Text>
+              <Text style={style.header}>{item.title}</Text>
+              <Text style={style.text}>{item.description}</Text>
             </View>
           );
         })

@@ -15,7 +15,6 @@ export default StyleSheet.create({
     padding: 25
   },
   container: {
-    borderTopWidth: 1,
-    borderTopColor: colors.lightGrey
+    paddingTop: 15
   }
 });
