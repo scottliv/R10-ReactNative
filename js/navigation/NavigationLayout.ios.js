@@ -61,6 +61,18 @@ export default class NavigationLayout extends Component {
             navigatorUID="faves"
           />
         </TabNavigationItem>
+        <TabNavigationItem
+          id="map"
+          title="Map"
+          renderIcon={isSelected => this.renderIcon(isSelected, "ios-map")}
+          renderTitle={this.renderTitle}
+        >
+          <StackNavigation
+            id="map"
+            initialRoute={Router.getRoute("map")}
+            navigatorUID="map"
+          />
+        </TabNavigationItem>
       </TabNavigation>
     );
   }

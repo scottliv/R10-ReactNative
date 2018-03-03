@@ -5,6 +5,7 @@ import NavigationLayout from "./NavigationLayout";
 import ScheduleContainer from "../scenes/Schedule";
 import SessionContainer from "../scenes/Session";
 import SpeakerContainer from "../scenes/Speaker";
+import MapContainer from "../scenes/Map";
 
 const Router = createRouter(() => ({
   about: () => AboutContainer,
@@ -12,6 +13,7 @@ const Router = createRouter(() => ({
   faves: () => FavesContainer,
   session: () => SessionContainer,
   speaker: () => SpeakerContainer,
+  map: () => MapContainer,
   layout: () => NavigationLayout
 }));
 
