@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { fetchFaves } from "../../redux/modules/faves";
 // import PropTypes from 'prop-types'
 import List from "../../components/List";
+import Gradient from "../../components/Gradient";
 import { fetchSchedule } from "../../redux/modules/schedule";
 import { formatSessionData } from "../../helpers";
 import style from "./style";
@@ -34,7 +35,8 @@ class FavesContainer extends Component {
 
   static route = {
     navigationBar: {
-      title: "Faves"
+      title: "Faves",
+      renderBackground: () => <Gradient />
     }
   };
 

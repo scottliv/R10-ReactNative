@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchAboutInfo } from "../../redux/modules/about";
+import Gradient from "../../components/Gradient";
 
 // import PropTypes from 'prop-types'
 import About from "./About";
@@ -12,7 +13,9 @@ class AboutContainer extends Component {
 
   static route = {
     navigationBar: {
-      title: "About"
+      title: "About",
+      titleStyle: { color: "white" },
+      renderBackground: () => <Gradient />
     }
   };
 

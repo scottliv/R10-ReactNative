@@ -12,18 +12,22 @@ const ListItem = ({ item, currentUID, style }) => {
       onPress={() => goToSession(currentUID, { item })}
     >
       <View style={style.container}>
-        <Text style={style.header}>{item.title} </Text>
+        <Text style={style.text}>{item.title} </Text>
         <View style={style.flexRowContainer}>
-          <Text>{item.location} </Text>
+          <Text style={(style.text, style.subText)}>{item.location} </Text>
           {Platform.OS === "android" &&
             (item.isFave ? (
-              <Icon style={{ color: "black" }} size={24} name={"md-heart"} />
+              <Icon style={{ color: colors.red }} size={24} name={"md-heart"} />
             ) : (
               <View />
             ))}
           {Platform.OS === "ios" &&
             (item.isFave ? (
-              <Icon style={{ color: "black" }} size={24} name={"ios-heart"} />
+              <Icon
+                style={{ color: colors.red }}
+                size={24}
+                name={"ios-heart"}
+              />
             ) : (
               <View />
             ))}

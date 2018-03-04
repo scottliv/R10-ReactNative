@@ -84,7 +84,7 @@ export default class CodeOfConduct extends Component {
   }
 }
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     backgroundColor: "#fff",
     margin: 10,

@@ -13,7 +13,9 @@ const List = ({ data, loading, error, currentUID, style }) => {
         <ListItem item={item} currentUID={currentUID} style={style} />
       )}
       renderSectionHeader={({ section }) => (
-        <Text>{Moment.unix(section.title).format("LT")}</Text>
+        <Text style={style.header}>
+          {Moment.unix(section.title).format("LT")}
+        </Text>
       )}
       sections={data}
       keyExtractor={item => {

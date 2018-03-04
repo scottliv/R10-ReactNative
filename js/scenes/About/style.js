@@ -18,8 +18,8 @@ export default StyleSheet.create({
     padding: 25
   },
   container: {
-    marginLeft: 5,
-    paddingTop: 5,
+    marginLeft: 10,
+    paddingTop: 10,
     borderTopWidth: 1,
     borderTopColor: colors.lightGrey
   }

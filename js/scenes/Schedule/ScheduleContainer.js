@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { fetchSchedule } from "../../redux/modules/schedule";
 import { fetchFaves } from "../../redux/modules/faves";
 import { formatSessionData } from "../../helpers";
+import Gradient from "../../components/Gradient";
 import style from "./style";
 
 // import PropTypes from 'prop-types'
@@ -14,7 +15,8 @@ class ScheduleContainer extends Component {
 
   static route = {
     navigationBar: {
-      title: "Schedule"
+      title: "Schedule",
+      renderBackground: () => <Gradient />
     }
   };
   favouriteFilter = schedule => {
