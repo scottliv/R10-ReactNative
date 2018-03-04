@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 // import PropTypes from 'prop-types'
-import { ActivityIndicator, Image, Text, View, ScrollView } from "react-native";
+import {
+  ActivityIndicator,
+  Image,
+  Text,
+  View,
+  Animated,
+  ScrollView
+} from "react-native";
+import CodeOfConduct from "./CodeOfConduct";
 const logo = require("../../assets/images/r10_logo.png");
 import style from "./style";
 
@@ -24,8 +32,9 @@ const About = ({ data, loading }) => (
         data.map(item => {
           return (
             <View key={item.title}>
-              <Text style={style.header}>{item.title}</Text>
-              <Text style={style.text}>{item.description}</Text>
+              <CodeOfConduct title={item.title}>
+                <Text style={style.text}>{item.description}</Text>
+              </CodeOfConduct>
             </View>
           );
         })

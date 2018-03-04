@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchAboutInfo } from "../../redux/modules/about";
+
 // import PropTypes from 'prop-types'
 import About from "./About";
 
