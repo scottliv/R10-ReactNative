@@ -16,3 +16,8 @@ export const typography = {
   fontMainLight: "Montserrat-Light",
   fontMain: "Montserrat-Regular"
 };
+
+export const titleBarStyle = {
+  color: colors.white,
+  fontFamily: typography.fontMain
+};

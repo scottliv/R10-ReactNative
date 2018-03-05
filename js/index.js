@@ -2,7 +2,7 @@
  * R10 App
  */
 import React, { Component } from "react";
-import { Text, View } from "react-native";
+import { Text, View, StatusBar } from "react-native";
 import { Provider } from "react-redux";
 import {
   NavigationProvider,
@@ -22,6 +22,7 @@ export default class App extends Component {
     return (
       <Provider store={Store}>
         <NavigationProvider context={navigationContext}>
+          <StatusBar barStyle="light-content" />
           <StackNavigation
             id="root"
             navigatorUID="root"

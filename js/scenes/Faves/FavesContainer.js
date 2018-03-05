@@ -6,6 +6,7 @@ import List from "../../components/List";
 import Gradient from "../../components/Gradient";
 import { fetchSchedule } from "../../redux/modules/schedule";
 import { formatSessionData } from "../../helpers";
+import { titleBarStyle } from "../../config/style";
 import style from "./style";
 
 class FavesContainer extends Component {
@@ -36,6 +37,7 @@ class FavesContainer extends Component {
   static route = {
     navigationBar: {
       title: "Faves",
+      titleStyle: titleBarStyle,
       renderBackground: () => <Gradient />
     }
   };
