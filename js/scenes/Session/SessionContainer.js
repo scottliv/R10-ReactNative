@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import endpoints from "../../config/endpoints";
 import realm from "../../config/model";
 import { titleBarStyle } from "../../config/style";
+import PropTypes from "prop-types";
 
 // import PropTypes from 'prop-types'
 import Session from "./Session";
@@ -50,5 +51,12 @@ class SessionContainer extends Component {
     );
   }
 }
+
+SessionContainer.propTypes = {
+  route: PropTypes.object,
+  params: PropTypes.object,
+  item: PropTypes.object,
+  speaker: PropTypes.string
+};
 
 export default SessionContainer;

@@ -5,6 +5,7 @@ import { fetchFaves } from "../../redux/modules/faves";
 import { formatSessionData } from "../../helpers";
 import Gradient from "../../components/Gradient";
 import { titleBarStyle } from "../../config/style";
+import PropTypes from "prop-types";
 import style from "./style";
 
 // import PropTypes from 'prop-types'
@@ -25,7 +26,7 @@ class ScheduleContainer extends Component {
     const keys = Object.keys(this.props.faves).map(key => {
       return this.props.faves[key].id;
     });
-    return this.props.schedule.reduce((acc, item) => {
+    return schedule.reduce((acc, item) => {
       if (keys.includes(item.session_id)) {
         item.isFave = true;
       } else {
@@ -60,5 +61,13 @@ const mapStateToProps = state => ({
   loading: state.schedule.loading,
   currentUID: state.navigation.currentNavigatorUID
 });
+
+ScheduleContainer.propTypes = {
+  loading: PropTypes.bool,
+  error: PropTypes.string,
+  currentUID: PropTypes.string,
+  schedule: PropTypes.array,
+  faves: PropTypes.object
+};
 
 export default connect(mapStateToProps)(ScheduleContainer);

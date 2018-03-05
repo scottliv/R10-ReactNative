@@ -13,6 +13,7 @@ import {
 } from "react-native";
 import { colors } from "../../config/style";
 import { goToSpeaker } from "../../navigation/navigationHelpers";
+import PropTypes from "prop-types";
 import style from "./style";
 
 const Session = ({ item, speaker }) => {
@@ -45,6 +46,7 @@ const Session = ({ item, speaker }) => {
           style={{ height: 50, width: 50, borderRadius: 25 }}
         />
         <TouchableHighlight
+          style={style.name}
           onPress={() => {
             goToSpeaker("root", { speaker });
           }}
@@ -75,6 +77,11 @@ const Session = ({ item, speaker }) => {
       )}
     </View>
   );
+};
+
+Session.propTypes = {
+  item: PropTypes.object,
+  speaker: PropTypes.object
 };
 
 export default Session;

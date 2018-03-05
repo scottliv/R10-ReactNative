@@ -4,7 +4,8 @@ import { typography, colors } from "../../config/style";
 export default StyleSheet.create({
   text: {
     fontFamily: typography.fontMainLight,
-    fontSize: 16
+    fontSize: 16,
+    paddingBottom: 15
   },
   subText: {
     color: colors.mediumGrey
@@ -37,5 +38,6 @@ export default StyleSheet.create({
     fontFamily: typography.fontMain,
     paddingBottom: 10,
     color: colors.red
-  }
+  },
+  name: { margin: 25 }
 });

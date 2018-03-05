@@ -1,6 +1,7 @@
 import React from "react";
 import { Platform, View, Text, TouchableHighlight } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
+import PropTypes from "prop-types";
 import { colors } from "../config/style";
 import { goToSession } from "../navigation/navigationHelpers";
 
@@ -35,6 +36,12 @@ const ListItem = ({ item, currentUID, style }) => {
       </View>
     </TouchableHighlight>
   );
+};
+
+ListItem.propTypes = {
+  item: PropTypes.object,
+  currrentUID: PropTypes.object,
+  style: PropTypes.object
 };
 
 export default ListItem;

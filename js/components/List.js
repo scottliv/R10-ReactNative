@@ -1,6 +1,7 @@
 import React from "react";
 import { SectionList, View, Text } from "react-native";
 import ListItem from "./ListItem";
+import PropTypes from "prop-types";
 import Moment from "moment";
 
 const List = ({ data, loading, error, currentUID, style }) => {
@@ -23,6 +24,14 @@ const List = ({ data, loading, error, currentUID, style }) => {
       }}
     />
   );
+};
+
+List.propTypes = {
+  data: PropTypes.array,
+  currrentUID: PropTypes.object,
+  loading: PropTypes.bool,
+  error: PropTypes.string,
+  style: PropTypes.object
 };
 
 export default List;
