@@ -8,7 +8,7 @@ import { goToSession } from "../navigation/navigationHelpers";
 const ListItem = ({ item, currentUID, style }) => {
   return (
     <TouchableHighlight
-      underlayColor={colors.purple}
+      underlayColor={colors.lightGrey}
       activeOpacity={42}
       onPress={() => goToSession(currentUID, { item })}
     >
