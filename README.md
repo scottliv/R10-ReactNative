@@ -6,7 +6,14 @@ Create a react native app for a conference called R10
 
 ### To use
 
-Clone this repo and run: `$ npm install`
+Clone this repo and run: `$ npm install` then
+`cd ios && pod install`
+
+### Known error work around
+
+Due to the version of some packages being used
+`rm node_modules/react-native/local-cli/core/__fixtures__/files/package.json` must be run to delete a file that the bundler can't handle.
+
 use: `$ react-native run-ios` to run the App in the simulator
 
 #### Technical description
