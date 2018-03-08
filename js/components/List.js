@@ -28,10 +28,10 @@ const List = ({ data, loading, error, currentUID, style }) => {
 
 List.propTypes = {
   data: PropTypes.array,
-  currrentUID: PropTypes.object,
   loading: PropTypes.bool,
   error: PropTypes.string,
-  style: PropTypes.object
+  style: PropTypes.object,
+  currentUID: PropTypes.string
 };
 
 export default List;

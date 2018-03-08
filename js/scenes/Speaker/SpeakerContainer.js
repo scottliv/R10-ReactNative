@@ -3,7 +3,7 @@ import { View, TouchableHighlight } from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 import { goBack } from "../../navigation/navigationHelpers";
 import style from "./style";
-// import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 import Speaker from "./Speaker";
 
 export default class SpeakerContainer extends Component {
@@ -34,3 +34,9 @@ export default class SpeakerContainer extends Component {
     );
   }
 }
+
+SpeakerContainer.propTypes = {
+  route: PropTypes.object,
+  params: PropTypes.object,
+  speaker: PropTypes.object
+};

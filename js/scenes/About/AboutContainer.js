@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { fetchAboutInfo } from "../../redux/modules/about";
 import Gradient from "../../components/Gradient";
@@ -33,5 +34,11 @@ const mapStateToProps = state => ({
   aboutInfo: state.about.aboutInfo,
   error: state.about.error
 });
+
+AboutContainer.propTypes = {
+  dispatch: PropTypes.func,
+  loading: PropTypes.bool,
+  aboutInfo: PropTypes.array
+};
 
 export default connect(mapStateToProps)(AboutContainer);

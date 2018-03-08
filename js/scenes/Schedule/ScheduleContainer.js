@@ -67,7 +67,8 @@ ScheduleContainer.propTypes = {
   error: PropTypes.string,
   currentUID: PropTypes.string,
   schedule: PropTypes.array,
-  faves: PropTypes.object
+  faves: PropTypes.object,
+  dispatch: PropTypes.func
 };
 
 export default connect(mapStateToProps)(ScheduleContainer);

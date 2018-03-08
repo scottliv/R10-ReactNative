@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchFaves } from "../../redux/modules/faves";
-// import PropTypes from 'prop-types'
 import List from "../../components/List";
 import Gradient from "../../components/Gradient";
 import { fetchSchedule } from "../../redux/modules/schedule";
@@ -69,7 +68,8 @@ FavesContainer.propTypes = {
   error: PropTypes.string,
   currentUID: PropTypes.string,
   schedule: PropTypes.array,
-  faves: PropTypes.object
+  faves: PropTypes.object,
+  dispatch: PropTypes.func
 };
 
 export default connect(mapStateToProps)(FavesContainer);

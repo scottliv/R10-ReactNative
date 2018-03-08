@@ -1,6 +1,7 @@
 import LinearGradient from "react-native-linear-gradient";
+import PropTypes from "prop-types";
 import React, { Component } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { colors } from "../config/style";
 
 export default class Gradient extends Component {
@@ -16,6 +17,9 @@ export default class Gradient extends Component {
   }
 }
 
+Gradient.propTypes = {
+  children: PropTypes.object
+};
 var style = StyleSheet.create({
   linearGradient: {
     flex: 1

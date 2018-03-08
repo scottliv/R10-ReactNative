@@ -3,11 +3,11 @@ import {
   StyleSheet,
   Text,
   View,
-  Image,
   Dimensions,
   TouchableHighlight,
   Animated
 } from "react-native";
+import PropTypes from "prop-types";
 
 import Icon from "react-native-vector-icons/Ionicons";
 
@@ -56,8 +56,6 @@ export default class CodeOfConduct extends Component {
   render() {
     let icon = "ios-add";
 
-    console.log(window);
-
     if (this.state.expanded) {
       icon = "ios-remove";
     }
@@ -89,6 +87,11 @@ export default class CodeOfConduct extends Component {
     );
   }
 }
+
+CodeOfConduct.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.object
+};
 
 const styles = StyleSheet.create({
   container: {
