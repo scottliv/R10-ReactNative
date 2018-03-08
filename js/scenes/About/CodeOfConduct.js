@@ -4,12 +4,14 @@ import {
   Text,
   View,
   Image,
+  Dimensions,
   TouchableHighlight,
   Animated
 } from "react-native";
 
 import Icon from "react-native-vector-icons/Ionicons";
 
+const window = Dimensions.get("window");
 export default class CodeOfConduct extends Component {
   constructor(props) {
     super(props);
@@ -54,6 +56,8 @@ export default class CodeOfConduct extends Component {
   render() {
     let icon = "ios-add";
 
+    console.log(window);
+
     if (this.state.expanded) {
       icon = "ios-remove";
     }
@@ -71,9 +75,11 @@ export default class CodeOfConduct extends Component {
             onPress={this.toggle.bind(this)}
             underlayColor="#f1f1f1"
           >
-            <Icon size={14} name={icon} />
+            <View style={styles.touchableHighlightContainer}>
+              <Icon size={14} name={icon} />
+              <Text style={styles.title}>{this.state.title}</Text>
+            </View>
           </TouchableHighlight>
-          <Text style={styles.title}>{this.state.title}</Text>
         </View>
 
         <View style={styles.body} onLayout={this._setMaxHeight.bind(this)}>
@@ -101,7 +107,7 @@ const styles = StyleSheet.create({
     color: "#2a2f43",
     fontWeight: "bold"
   },
-  button: {},
+  button: { width: window.width },
   buttonImage: {
     width: 30,
     height: 25
@@ -109,5 +115,10 @@ const styles = StyleSheet.create({
   body: {
     padding: 15,
     paddingTop: 0
+  },
+  touchableHighlightContainer: {
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center"
   }
 });
