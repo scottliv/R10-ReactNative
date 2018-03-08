@@ -4,7 +4,7 @@ import realm from "../../config/model";
 import { titleBarStyle } from "../../config/style";
 import PropTypes from "prop-types";
 
-// import PropTypes from 'prop-types'
+import Gradient from "../../components/Gradient";
 import Session from "./Session";
 
 class SessionContainer extends Component {
@@ -28,7 +28,8 @@ class SessionContainer extends Component {
   static route = {
     navigationBar: {
       title: "Session",
-      titleStyle: titleBarStyle
+      titleStyle: titleBarStyle,
+      renderBackground: () => <Gradient />
     }
   };
 

@@ -40,7 +40,7 @@ const ListItem = ({ item, currentUID, style }) => {
 
 ListItem.propTypes = {
   item: PropTypes.object,
-  currentUID: PropTypes.object,
+  currentUID: PropTypes.string,
   style: PropTypes.object
 };
 
